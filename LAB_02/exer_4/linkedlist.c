@@ -18,19 +18,21 @@ head->first=new_node;
 (head->count)++;
 }
 
-void deleteFirst(struct linkedList *head){
+struct node* deleteFirst(struct linkedList *head){
   if(head->count==0)
   {
   printf("\n**No elements present for deletion!**\n");
-  return;
+  return NULL;
   }
-  else{
+  else
+  {
     printf("\n......Popping...........");
-    struct node* temp=(head->first)->next;
-    free(head->first);
-    head->first=temp;
+    struct node* temp=head->first;
+    //free(head->first);
+    head->first=temp->next;
     (head->count)--;
     printf("Done!\n");
+    return temp;
   }
 }
 
@@ -62,19 +64,20 @@ int search(struct linkedList *head, int ele){
 
 struct node* delete (struct linkedList * head, int ele){
   struct node* i=head->first;
-  struct node* temp=(struct node*)malloc(sizeof(struct node));
+  struct node* temp;//=(struct node*)malloc(sizeof(struct node));
   if((head->first)->element==ele)
   {
-    temp->element=ele;
-    temp->next=(head->first)->next;
-    deleteFirst(head);
-    return temp;
+    //temp->element=ele;
+    //temp->next=(head->first)->next;
+    return deleteFirst(head);
+    //return temp;
   }
   while(i!=NULL){
     if((i->next)->element==ele){
-      temp->element=ele;
-      temp->next=(i->next)->next;
-      free(i->next);
+      //temp->element=ele;
+      //temp->next=(i->next)->next;
+      temp=i->next;
+      //free(i->next);
       i->next=temp->next;
       printf("******   %s   ********\n"," Element found!");
       (head->count)--;

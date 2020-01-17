@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "linkedlist.h"
-//#include "stack.h"
+//#include "linkedlist.h"
+#include "stack.h"
 
 int main(int argc, char *argv[])
 {
@@ -29,11 +29,14 @@ printf("%s\n","list after pushing all elements");
 printStack(head);
 printf("\n");
 */
+struct node* t;
 while(head->count)
 {
   //printf("Stack length:%d",head->count);
   printStack(head);
-  pop(head);
+  t=pop(head);
+  printf("element popped! [%d]\n\n",t->element);
+  free(t);
 }
 /*
 if(search(head, 5))

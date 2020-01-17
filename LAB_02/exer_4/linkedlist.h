@@ -10,7 +10,7 @@ struct node *first;
 
 void insertFirst(struct linkedList *head, int ele);
 
-void deleteFirst(struct linkedList *head);
+struct node* deleteFirst(struct linkedList *head);
 
 void printList(struct linkedList *head);
 
