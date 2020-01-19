@@ -14,11 +14,9 @@ struct linkedList *head=(struct linkedList*)malloc(sizeof(struct linkedList));
 int temp;
 while(1)
 {
-// printf("\n........Scanning....... \t");
 fscanf(fptr,"%d",&temp);
 if(feof(fptr))
   break;
-// printf("%d\n", temp);
 insertFirst(head,temp);
 }
 fclose(fptr);

@@ -1,14 +1,14 @@
 #include "stack.h"
 
-void push(struct linkedList *head,int ele)
+void push(struct Stack* st,int ele)
 {
-	insertFirst(head,ele);
+	insertFirst(st->head,ele);
 }
-struct node* pop(struct linkedList *head)
+struct node* pop(struct Stack* st)
 {
-	return deleteFirst(head);
+	return deleteFirst(st->head);
 }
-void printStack(struct linkedList *head)
+void printStack(struct Stack* st)
 {
-  printList(head);
+  printList(st->head);
 }

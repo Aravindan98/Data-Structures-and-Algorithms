@@ -12,7 +12,9 @@ if(fptr==NULL){
   exit(1);
 }
 
-struct linkedList *head=(struct linkedList*)malloc(sizeof(struct linkedList));
+struct Stack *st=(struct Stack*)malloc(sizeof(struct Stack));
+st->head=(struct linkedList*)malloc(sizeof(struct linkedList));
+
 int temp;
 while(1)
 {
@@ -21,33 +23,23 @@ fscanf(fptr,"%d",&temp);
 if(feof(fptr))
   break;
 // printf("%d\n", temp);
-push(head,temp);
+push(st,temp);
 }
 fclose(fptr);
 /*
 printf("%s\n","list after pushing all elements");
-printStack(head);
+printStack(st->head);
 printf("\n");
 */
 struct node* t;
-while(head->count)
+while((st->head)->count)
 {
   //printf("Stack length:%d",head->count);
-  printStack(head);
-  t=pop(head);
+  printStack(st);
+  t=pop(st);
   printf("element popped! [%d]\n\n",t->element);
   free(t);
 }
-/*
-if(search(head, 5))
-printf("\n\nYes 5 is present in the list\n");
-else
-printf("\n\nNo 5 is not present in the list\n");
-
-printf(" \n\n\n deleted element : %d\n",delete(head,5)->element);
-printList(head);
-printf("\n\n");
-*/
-free(head);
+free(st->head);
 return 0;
 }

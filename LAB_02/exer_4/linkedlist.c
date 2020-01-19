@@ -64,13 +64,10 @@ int search(struct linkedList *head, int ele){
 
 struct node* delete (struct linkedList * head, int ele){
   struct node* i=head->first;
-  struct node* temp;//=(struct node*)malloc(sizeof(struct node));
+  struct node* temp;
   if((head->first)->element==ele)
   {
-    //temp->element=ele;
-    //temp->next=(head->first)->next;
     return deleteFirst(head);
-    //return temp;
   }
   while(i!=NULL){
     if((i->next)->element==ele){

@@ -1,8 +1,11 @@
 /*********stack.h*******/
 #include "linkedlist.h"
 
-void push(struct linkedList* head,int ele);
+struct Stack{
+  struct linkedList* head;
+};
+void push(struct Stack* st,int ele);
 
-struct node* pop(struct linkedList* head);
+struct node* pop(struct Stack* st);
 
-void printStack(struct linkedList *head);
+void printStack(struct Stack* st);
