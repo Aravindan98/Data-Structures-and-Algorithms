@@ -6,7 +6,7 @@ struct node *next;// next is a pointer variable to a node structure
 struct linkedList{
 int count;
 struct node *first;
-};
+}linkedList;
 
 void insertFirst(struct linkedList *head, int ele);
 

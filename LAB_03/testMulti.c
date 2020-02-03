@@ -1,9 +1,5 @@
 #include "multiQ.h"
-// #include<stdio.h>
-// #include<stdlib.h>
-//MultiQ loadData(File f) - reads from f a list of pairs (task_id, priority) and adds each
-// item to a MultiQ appropriately.
-
+#include<sys/time.h>
 MultiQ loadData(FILE* fptr)
 {
 	Task t;
@@ -31,10 +27,10 @@ MultiQ loadData(FILE* fptr)
 		mq=addMQ(mq,t);
 		// printf(" sizeMQ %d\n",sizeMQ(mq));
 	}
-	printf("%s\n", "___________Successfully loaded data!____________");
+	printf("%s\n =============== LOADED DATA ===============\n", "___________Successfully loaded data!____________");
 	for(int i=0;i<10;i++)
 	{
-			printf("  mq[%d] :::: length:%d :::: priority:%d  \n",i,lengthQ(mq[i]),mq[i]->p);
+			printf("\n  mq[%d] :::: length:%d :::: priority:%d  \n",i,lengthQ(mq[i]),mq[i]->p);
 	}
 	fclose(fptr);
 return mq;
@@ -52,24 +48,44 @@ return mq;
 
 int main(int argc,char* argv[])
 {
+	struct timeval t1_load,t2_load,t1_del,t2_del;
+	double elapsed_time;
 	if(argc < 2)
 	{
-		printf("\nenter filename and number of deletions!\n");
+	printf("\n Enter filename and number of deletions on command line!\n");
 	return -1;
 	}
 	FILE* fptr=fopen(argv[1],"r");
+
+	gettimeofday(&t1_load,NULL);
 	MultiQ mq=loadData(fptr);
-	printf("\n======== sizeMQ returns :%d ============",sizeMQ(mq));
+	gettimeofday(&t2_load,NULL);
+	elapsed_time=(t2_load.tv_sec-t1_load.tv_sec)*1000.0;
+	elapsed_time+=(t2_load.tv_usec-t1_load.tv_usec)/1000.0;
+	printf("\n------------------------------------\n");
+	printf("     Time for Loading:%f ms\n",elapsed_time);
+	printf("\n\n");
+
+	elapsed_time=0.0;
+	// printf("\n======== sizeMQ returns :%d ============",sizeMQ(mq));
 	// printf("\n======== sizeMQbyPriority(10): %d ===========\n",sizeMQbyPriority(mq,10));
 
+	gettimeofday(&t1_del,NULL);
 	mq=testDel(mq,atoi(argv[2]));
+	gettimeofday(&t2_del,NULL);
+	elapsed_time=(t2_del.tv_sec-t1_del.tv_sec)*1000.0;
+	elapsed_time+=(t2_del.tv_usec-t1_del.tv_usec)/1000.0;
+	printf("\n------------------------------------\n");
+	printf("     Time for Deleting: %f ms\n",elapsed_time);
+	printf("\n\n");
 
+	printf("\n%s\n","######### MultiQ post deletions ############" );
 	for(int i=0;i<10;i++)
 	{
 			if(mq[i]->p==-1)
-			continue;
-			printf("  mq[%d] :::: length:%d :::: priority:%d  \n",i,lengthQ(mq[i]),mq[i]->p);
+				continue;
+			printf("\n  mq[%d] :::: length:%d :::: priority:%d  \n",i,lengthQ(mq[i]),mq[i]->p);
 	}
-	printf("\n======== sizeMQ returns :%d ============\n",sizeMQ(mq));
+	// printf("\n======== sizeMQ returns :%d ============\n",sizeMQ(mq));
 	// printf("\n======== sizeMQbyPriority(10): %d ===========\n",sizeMQbyPriority(mq,10));
 }//end of main

@@ -1,0 +1,54 @@
+
+*****************File opened successfully!**********
+
+
+++++++++++ MultiQ created! ++++++++++
+               ========== READING =========
+___________Successfully loaded data!____________
+ =============== LOADED DATA ===============
+
+  mq[0] :::: length:8 :::: priority:9  
+
+  mq[1] :::: length:14 :::: priority:3  
+
+  mq[2] :::: length:15 :::: priority:6  
+
+  mq[3] :::: length:12 :::: priority:10  
+
+  mq[4] :::: length:9 :::: priority:7  
+
+  mq[5] :::: length:8 :::: priority:8  
+
+  mq[6] :::: length:8 :::: priority:4  
+
+  mq[7] :::: length:7 :::: priority:5  
+
+  mq[8] :::: length:12 :::: priority:1  
+
+  mq[9] :::: length:7 :::: priority:2  
+
+------------------------------------
+     Time for Loading:0.041000 ms
+
+
+
+------------------------------------
+     Time for Deleting: 0.003000 ms
+
+
+
+######### MultiQ post deletions ############
+
+  mq[1] :::: length:14 :::: priority:3  
+
+  mq[2] :::: length:15 :::: priority:6  
+
+  mq[4] :::: length:7 :::: priority:7  
+
+  mq[6] :::: length:8 :::: priority:4  
+
+  mq[7] :::: length:7 :::: priority:5  
+
+  mq[8] :::: length:12 :::: priority:1  
+
+  mq[9] :::: length:7 :::: priority:2  

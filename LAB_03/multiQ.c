@@ -92,7 +92,8 @@ for(int i=1;i<total_queues;i++)
 }
 // if(lengthQ(mq[max_prior_index])>1)
   mq[max_prior_index]=delQ(mq[max_prior_index]);
-
+  if(isEmpty(mq[max_prior_index]))
+    total_queues--;
 return mq;
 }
 
@@ -109,7 +110,7 @@ return true;
 
 int sizeMQ(MultiQ mq)
 {
-  printf("total_queues: %d\n",total_queues);
+  // printf("total_queues: %d\n",total_queues);
   int total_item_count=0;
   for(int i=0;i<total_queues;i++)
   {
@@ -125,15 +126,13 @@ return lengthQ(getQueueFromMQ(mq,p));
 
 queue getQueueFromMQ(MultiQ mq, Priority p)// returns the Queue with priority p.
 {
-// check priority and return Queue
-
 int i=0;
 while(1)
 {
-  printf("%s  %d\n","################ reached here #############",i );
+  // printf("%s  %d\n","################ reached here #############",i );
   if(mq[i]->p==p && i<total_queues)
     {
-      printf("%s\n","################ Priority Matched! #############" );  
+      printf("%s\n","################ Priority Matched! #############" );
       return mq[i];
       break;
     }

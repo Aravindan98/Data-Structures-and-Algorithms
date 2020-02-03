@@ -27,7 +27,7 @@ if(!isEmpty(q))
 {
 if(lengthQ(q)==1)
   {
-    printf("%s\n","length = 1...setting tail=null and p=-1" );
+    // printf("%s\n","length = 1...setting tail=null and p=-1" );
     q->tail=NULL;
     q->p=-1;
   }
