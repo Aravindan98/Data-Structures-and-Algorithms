@@ -20,7 +20,7 @@ void myfree(void* p){
 
 int main(int argc,char* argv[])
 {
-  // FILE* f=fopen("OUTPUT_linkreversal.csv","a");
+  FILE* f=fopen("OUTPUT_linkreversal.csv","a");
   srand(time(0));
   struct timeval t1,t2;
   double elapsedTime;
@@ -42,7 +42,7 @@ int main(int argc,char* argv[])
   elapsedTime=(t2.tv_sec-t1.tv_sec)*1000.0;
   elapsedTime+=(t2.tv_usec-t1.tv_usec)/1000.0;
   printf("\nTotal time elasped :%f ms.\n",elapsedTime);
-  // fprintf(f,"\n%d,%ld,%f",atoi(argv[1]),total_space_allocated,elapsedTime);
-  // fclose(f);
+  fprintf(f,"\n%d,%ld,%f",atoi(argv[1]),total_space_allocated,elapsedTime);
+  fclose(f);
   return 0;
 }
